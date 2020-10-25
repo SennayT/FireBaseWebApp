@@ -26,18 +26,19 @@ function renderCafe(doc) {
   });
 }
 
-db.collection("Cafes")
-  .get()
-  .then((snapshot) => {
-    snapshot.docs.forEach((doc) => {
-      console.log(doc.data());
-      renderCafe(doc);
-    });
-  })
-  .catch((err) => {
-    console.log("Error occured");
-    console.log(err);
+//Add Listeners
+
+db.collection("Cafes").onSnapshot((snapshot) => {
+  let changes = snapshot.docChanges();
+  changes.forEach((change) => {
+    if (change.type === "added") {
+      renderCafe(change.doc);
+    } else if (change.type === "removed") {
+      let li = cafeList.querySelector("[data-id=" + change.doc.id + "]");
+      cafeList.removeChild(li);
+    }
   });
+});
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
