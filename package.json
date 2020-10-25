@@ -1,0 +1,24 @@
+{
+  "name": "fire",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SennayT/FireBaseWebApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://SennayT.github.io/cafes",
+  "bugs": {
+    "url": "https://github.com/SennayT/FireBaseWebApp/issues"
+  },
+  "homepage": "https://github.com/SennayT/FireBaseWebApp#readme",
+  "dependencies": {
+    "gh-pages": "^3.1.0"
+  }
+}
